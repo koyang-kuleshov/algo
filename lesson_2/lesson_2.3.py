@@ -16,3 +16,11 @@ str1 = input('Введите число: ')
 len_str1 = len(str1)
 get_str2(str1)
 print(f'Число {str1} в обратном порядке - {str2}')
+
+num = int(str1)
+result = 0
+while num > 0:
+    result = result * 10 + num % 10
+    num = num // 10
+
+print(result)
