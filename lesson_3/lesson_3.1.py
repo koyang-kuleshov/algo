@@ -1,27 +1,16 @@
-# 1. Написать программу, которая будет складывать, вычитать, умножать или делить два числа.
-# Числа и знак операции вводятся пользователем. После выполнения вычисления программа не должна завершаться, а должна запрашивать новые данные для вычислений.
-# Завершение программы должно выполняться при вводе символа '0' в качестве знака операции.
-# Если пользователь вводит неверный знак (не '0', '+', '-', '*', '/'), то программа должна сообщать ему об ошибке и снова запрашивать знак операции.
-# Также сообщать пользователю о невозможности деления на ноль, если он ввел 0 в качестве делителя.
-while True:
-    operation = input('Введите операцию для чисел(+, -, *, /) или 0 для выхода: ')
-    if operation != '+' and operation != '-' and operation != '*' and operation != '/' and operation != '0':
-        print('Вы ввели не корректную операцию, попытайтесь ещё раз')
-        continue
-    if operation == '0':
-        break
-    num_1 = int(input('Введите первое число: '))
-    num_2 = int(input('Введите второе число: '))
-    if operation == '+':
-        result = num_1 + num_2
-    elif operation == '-':
-        result = num_1 - num_2
-    elif operation == '*':
-        result = num_1 * num_2
-    elif num_2 != 0:
-        result = num_1 / num_2
-    else:
-        print('Вы ввели 0 для второго числа. На ноль делить нельзя.')
-        continue
-    print(f'Результат: {result}')
+# 1. В диапазоне натуральных чисел от 2 до 99 определить, сколько из них кратны каждому из чисел в диапазоне от 2 до 9. [In the range of natural numbers from 2 to 99, determine how many of them are multiples of each of the numbers in the range from 2 to 9.]
+import random
 
+SIZE = 10
+MAX_ITEM = 99
+MIN_ITEM = 2
+
+array = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
+print(f'Исходный массив: {array}')
+# for count, item in enumerate(array):
+for i in range(2,10):
+    eggs_sum = 0
+    for item in array:
+        if item % i == 0:
+            eggs_sum += 1
+    print(f'Чисел кратных {i} - {eggs_sum}')
