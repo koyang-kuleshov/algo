@@ -23,6 +23,6 @@ for count, item in enumerate(array):
         max_pos = count
 print(f'Минимальны элемент array[{min_pos}] = {min_elem}')
 print(f'Максимальный элемент array[{max_pos}] = {max_elem}')
-for item in array[min_pos: max_pos]:
+for item in array[min_pos + 1: max_pos]:
     spam_sum += item
 print(f'Сумма элементов между минимальным и максимальным числами: {spam_sum}')
