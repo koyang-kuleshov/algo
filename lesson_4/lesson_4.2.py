@@ -23,11 +23,11 @@ def iteration_func(elem):
             if number_check:
                 simple += 1
             number_check = True
-    return find_elem
+    return f'{elem} - {find_elem}'
 
 
 def eratosthenes(elem):
-    n = elem * 3
+    n = elem * elem
     a = [0] * n  # создание массива с n количеством элементов
     for i in range(n):  # заполнение массива ...
         a[i] = i  # значениями от 0 до n-1
@@ -51,12 +51,14 @@ def eratosthenes(elem):
         if a[i] != 0:
             b.append(a[i])
 
-    del a
-    # print(b[elem - 1])
+    # del a
+    return f'{elem} - {b[elem - 1]}'
 
-print(timeit('iteration_func(5)', number=100, globals=globals()))
+print(timeit('iteration_func(20)', number=100, globals=globals()))
+print(iteration_func(20))
 # 7.072599692037329e-05
-print(timeit('iteration_func(10)', number=100, globals=globals()))
+print(timeit('iteration_func(21)', number=100, globals=globals()))
+print(iteration_func(21))
 # 0.000335466000251472
 print(timeit('iteration_func(20)', number=100, globals=globals()))
 # 0.0009312889997090679
@@ -64,8 +66,6 @@ print(timeit('iteration_func(40)', number=100, globals=globals()))
 # 0.0024880749988369644
 print(timeit('iteration_func(80)', number=100, globals=globals()))
 # 0.005240195001533721
-print(timeit('iteration_func(8000)', number=100, globals=globals()))
-# 0.5455646439986594
 
 cProfile.run('iteration_func(30)')
          # 4 function calls in 0.000 seconds
@@ -78,9 +78,11 @@ cProfile.run('iteration_func(30)')
         # 1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
         # 1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
-print(timeit('eratosthenes(5)', number=100, globals=globals()))
+print(timeit('eratosthenes(20)', number=100, globals=globals()))
+print(eratosthenes(20))
 # 0.00035997699887957424
-print(timeit('eratosthenes(10)', number=100, globals=globals()))
+print(timeit('eratosthenes(21)', number=100, globals=globals()))
+print(eratosthenes(21))
 # 0.0006988589993852656
 print(timeit('eratosthenes(20)', number=100, globals=globals()))
 # 0.0012358720014162827
@@ -88,8 +90,6 @@ print(timeit('eratosthenes(40)', number=100, globals=globals()))
 # 0.002475773999321973
 print(timeit('eratosthenes(80)', number=100, globals=globals()))
 # 0.004970158999640262
-print(timeit('eratosthenes(8000)', number=100, globals=globals()))
-# 0.6735784320007951
 
 cProfile.run('eratosthenes(30)')
          # 28 function calls in 0.000 seconds
