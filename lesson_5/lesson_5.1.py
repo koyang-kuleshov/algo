@@ -39,6 +39,6 @@ for i in lst:
         print(i.name)
 print('Компании у которых прибыль ниже средней')
 for i in lst:
-    if i.firm_profit <= avg_profit:
+    if i.firm_profit < avg_profit:
         print(i.name)
 
