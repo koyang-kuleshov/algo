@@ -5,7 +5,8 @@
 from random import randint
 
 
-n = int(input( 'Введите величину массива: ' ))
+#  n = int(input( 'Введите величину массива: ' ))
+n = 10
 arr = [randint(100, 5000) / 100 for _ in range(n)]
 
 def merge_sort(obj):
