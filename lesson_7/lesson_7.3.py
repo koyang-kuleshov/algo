@@ -7,7 +7,7 @@
 
 
 from random import randint
-from math import ceil
+from math import floor
 
 
 def gnome_sort(arr):
@@ -25,6 +25,7 @@ m = 4
 arr = [randint(0, 10) for _ in range(2 * m + 1)]
 print(f'Исходный массив:        {arr}')
 print(f'Отсортированный массив: {gnome_sort(arr)}')
-mediana = arr[ceil(len(arr) / 2)]
+# FIXIT: change functions for round
+mediana = arr[floor(len(arr) / 2)]
 print(f'Медиана массива {mediana} на позиции {arr.index(mediana)}')
 
