@@ -14,8 +14,8 @@ def rabin_karp(s, t):
     for i in range(len(s) - len_sub + 1):
         if h_subs == hashlib.sha1(s[i:i+len_sub].encode('utf-8')).hexdigest():
             num_str += 1
-    print(f'Строка "{t}" содержиться {num_str} раз')
-    return num_str
+            print(f'Строка "{t}" содержиться {num_str} раз')
+            return num_str
 
 
 def num_subs(spam_str):
@@ -25,7 +25,7 @@ def num_subs(spam_str):
     eggs_elem = ''
     word = 1
     i = 0
-    while word < len(spam_str):
+    while word <= len(spam_str):
         j = i + 1
         while i < len(spam_str) and j <= len(spam_str):
             if i == 0 and j == 4:
@@ -37,9 +37,10 @@ def num_subs(spam_str):
             j += 1
         i += 1
         word += 1
+        j = 0
     return counter
 
 
-src_str = 'ab ba'
+src_str = 'sova'
 src_str = src_str.replace(' ', '')
 print(f'Всего в строке "{src_str}" содержится {num_subs(src_str)} подстрок')
